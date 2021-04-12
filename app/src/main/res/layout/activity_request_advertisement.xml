@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".View.RequestAdvertisementActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/dp55">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="@color/white">
+
+                <RelativeLayout
+                    android:id="@+id/ivBack"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:onClick="clickBack"
+                    android:src="@drawable/ic_arrow_back">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_arrow_back" />
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="प्रस्ताव / विज्ञापन के लिए अनुरोध \nRequest for Offer/Advertisement"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp18" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp20"
+                android:orientation="vertical">
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/rbfree"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="Free"
+                        android:textSize="@dimen/sp12" />
+
+                    <RadioButton
+                        android:id="@+id/rbPaid"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:enabled="true"
+                        android:fontFamily="@font/roboto_light"
+                        android:text="Paid"
+                        android:textSize="@dimen/sp12" />
+                </RadioGroup>
+
+                <EditText
+                    android:id="@+id/et_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:background="@drawable/edittext_back"
+                    android:drawablePadding="@dimen/dp10"
+                    android:fontFamily="@font/roboto_light"
+                    android:gravity="top"
+                    android:hint="प्रस्ताव / विज्ञापन शीर्षक दर्ज करें\nEnter offer / advertisement title"
+                    android:inputType="text"
+                    android:maxLength="100"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/et_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp120"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:background="@drawable/edittext_back"
+                    android:drawablePadding="@dimen/dp10"
+                    android:fontFamily="@font/roboto_light"
+                    android:gravity="top"
+                    android:hint="प्रस्ताव / विज्ञापन का विवरण दर्ज करें\nEnter details of offer / advertisement"
+                    android:inputType="textMultiLine"
+                    android:maxLength="320"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/et_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp120"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:background="@drawable/edittext_back"
+                    android:drawablePadding="@dimen/dp10"
+                    android:fontFamily="@font/roboto_light"
+                    android:gravity="top"
+                    android:hint="पता\nAddress"
+                    android:inputType="text"
+                    android:maxLength="200"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:id="@+id/llDateSelction"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/roboto_bold"
+                            android:gravity="center"
+                            android:text="Start Date"
+                            android:textColor="@color/orange"
+                            android:textSize="@dimen/sp15" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/roboto_bold"
+                            android:gravity="center"
+                            android:text="End Date"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/sp15"
+                            android:visibility="gone" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp50"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btnStartDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="@dimen/dp5"
+                            android:layout_weight="1"
+                            android:backgroundTint="@color/orange"
+                            android:drawableLeft="@drawable/ic_calendar"
+                            android:drawablePadding="10dp"
+                            android:hint="12/Aug/2019"
+                            android:textColor="@color/white"
+                            android:textColorHint="@color/white" />
+
+                        <Button
+                            android:id="@+id/btnEndDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/dp5"
+                            android:layout_weight="1"
+                            android:backgroundTint="@color/colorPrimary"
+                            android:drawableLeft="@drawable/ic_calendar"
+                            android:drawablePadding="10dp"
+                            android:hint="18/Aug/2019"
+                            android:textColor="@color/white"
+                            android:textColorHint="@color/white"
+                            android:visibility="gone" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cvBanner"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:visibility="gone">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:background="@color/white">
+
+                        <ImageView
+                            android:id="@+id/img_banner"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/ic_background" />
+
+                        <TextView
+                            android:id="@+id/tv_banner"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:padding="@dimen/dp5"
+                            android:text="Banner Image"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/tvModifyBannerImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="@string/banner_image_change"
+                    android:textSize="15sp"
+                    android:visibility="gone" />
+
+                <RadioGroup
+                    android:id="@+id/rgChoice"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <RadioButton
+                        android:id="@+id/rbYes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="Yes"
+                        android:textSize="@dimen/sp12" />
+
+                    <RadioButton
+                        android:id="@+id/rbNo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="No"
+                        android:textSize="@dimen/sp12" />
+                </RadioGroup>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:layout_weight="1">
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:background="@color/white"
+                        android:orientation="horizontal">
+
+
+                        <RelativeLayout
+                            android:id="@+id/rel1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                            <ImageView
+                                android:id="@+id/img_one"
+                                android:layout_width="150dp"
+                                android:layout_height="150dp"
+                                android:layout_alignParentLeft="true"
+                                android:src="@drawable/ic_background" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="15sp"
+                                android:textColor="#000000"
+                                android:layout_marginLeft="30dp"
+                                android:text="Mandatory"
+                                android:layout_centerVertical="true"
+                                >
+                            </TextView>
+                        </RelativeLayout>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_toRightOf="@id/rel1"
+                        >
+
+                        <ImageView
+                            android:id="@+id/img_two"
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginLeft="10dp"
+                            android:src="@drawable/ic_background" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:textColor="#000000"
+
+                            android:layout_alignParentRight="true"
+                            android:text="Optional"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="45dp"
+                            >
+                        </TextView>
+
+                    </RelativeLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cvPaid"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                   >
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:background="@color/white"
+                        android:orientation="horizontal">
+
+
+                        <RelativeLayout
+                            android:id="@+id/rel3"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                            <ImageView
+                                android:id="@+id/img_three"
+                                android:layout_width="150dp"
+                                android:layout_height="150dp"
+                                android:layout_alignParentLeft="true"
+                                android:src="@drawable/ic_background" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="15sp"
+                                android:textColor="#000000"
+                                android:layout_marginLeft="30dp"
+                                android:text="Optional"
+                                android:layout_centerVertical="true"
+                                >
+                            </TextView>
+                        </RelativeLayout>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_toRightOf="@id/rel3"
+                        >
+
+                        <ImageView
+                            android:id="@+id/img_four"
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginLeft="10dp"
+                            android:src="@drawable/ic_background" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:textColor="#000000"
+
+                            android:layout_alignParentRight="true"
+                            android:text="Optional"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="45dp"
+                            >
+                        </TextView>
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <Button
+                        android:id="@+id/bt_Camera"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginLeft="@dimen/dp10"
+                        android:layout_weight="1"
+                        android:background="@drawable/app_button_press"
+                        android:backgroundTint="@color/greenA700"
+                        android:fontFamily="@font/roboto_medium"
+                        android:paddingLeft="@dimen/dp20"
+                        android:paddingRight="@dimen/dp20"
+                        android:text="Choose Photos"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sp15"
+                        android:visibility="gone" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="@dimen/dp5"
+                android:gravity="center_horizontal"
+                android:text="Disclaimer:- Your payment will start once your ads. go live." />
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/app_button_press"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Submit"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp15" />
+
+</RelativeLayout>

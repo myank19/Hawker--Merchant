@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:scrollbars="none"
+    android:fillViewport="true"
+    android:background="@color/white">
+
+    <RelativeLayout android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:padding="10dp"
+            android:layout_weight="0.5"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="350dp"
+                android:layout_height="250dp"
+                android:id="@+id/image_logo"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:background="@mipmap/logos"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:visibility="gone"
+                android:layout_gravity="center"
+                android:textSize="@dimen/text_bigb_size"
+                android:text="@string/app_name"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/colorPrimary"
+                android:layout_gravity="center"
+                android:layout_marginBottom="50dp"
+                android:layout_marginTop="5dp"
+                android:textSize="@dimen/sp30"
+                android:text="Sign &amp; Register in to continue"
+                android:layout_height="wrap_content" />
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="@dimen/dp40"
+                    android:layout_centerVertical="true"
+                    android:background="@mipmap/smartphone"
+                    android:id="@+id/iv_phone"
+                    android:layout_height="@dimen/dp40" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/text_input_layout_number"
+                    android:layout_width="match_parent"
+                    android:textColorHint="@color/light_gray"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/edit_text_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp70"
+                        android:digits="1234567890"
+                        android:paddingStart="@dimen/dp45"
+                        android:gravity="top"
+                        android:hint="@string/str_phone_number"
+                        android:inputType="textFilter|number"
+                        android:maxLength="10"
+                        android:textSize="@dimen/sp25"
+                        android:singleLine="true"
+                        android:textColor="@color/gray"
+                        android:paddingLeft="@dimen/dp30" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </RelativeLayout>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp80"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:id="@+id/btn_submit_id"
+                android:textSize="@dimen/sp25"
+                android:background="@drawable/app_bar_background"
+                android:text="@string/str_login"
+                />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/animate_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:visibility="invisible"
+            />
+    </RelativeLayout>
+
+
+</ScrollView>

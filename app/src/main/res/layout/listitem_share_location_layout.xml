@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview_total_critical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp5"
+        android:layout_marginBottom="4dp"
+        android:elevation="8dp"
+        android:orientation="vertical"
+        app:cardCornerRadius="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_date_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/dp5"
+                        android:fontFamily="@font/roboto_light"
+                        android:padding="@dimen/dp3"
+                        android:text=""
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp12" />
+
+                    <TextView
+                        android:id="@+id/tv_name_customer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_bold"
+                        android:paddingLeft="@dimen/dp10"
+                        android:paddingTop="@dimen/dp10"
+                        android:text=""
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp15" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tv_location"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_location_on_black"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text=""
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp12" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/dp10"
+                    android:weightSum="4">
+
+                    <RelativeLayout
+                        android:id="@+id/phone_call_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:padding="@dimen/dp3">
+
+                        <ImageView
+                            android:id="@+id/img_call"
+                            android:layout_width="@dimen/dp35"
+                            android:layout_height="@dimen/dp35"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/ic_phone_call" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/img_call"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:fontFamily="@font/roboto_light"
+                            android:text="कॉल \nCall"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/sp12" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/navigate_location_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:padding="@dimen/dp3">
+
+                        <ImageView
+                            android:id="@+id/img_navigate"
+                            android:layout_width="@dimen/dp35"
+                            android:layout_height="@dimen/dp35"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/ic_position" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/img_navigate"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:fontFamily="@font/roboto_light"
+                            android:text="रास्ता देखे\nNavigate"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/sp12" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/complete_trip_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:padding="@dimen/dp3">
+
+                        <ImageView
+                            android:id="@+id/img_done"
+                            android:layout_width="@dimen/dp35"
+                            android:layout_height="@dimen/dp35"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/ic_correct" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/img_done"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:fontFamily="@font/roboto_light"
+                            android:text="पूर्ण किया\nComplete"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/sp12" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/cancel_trip_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:padding="@dimen/dp3">
+
+                        <ImageView
+                            android:id="@+id/img_cancel"
+                            android:layout_width="@dimen/dp35"
+                            android:layout_height="@dimen/dp35"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/ic_cancel" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/img_cancel"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:fontFamily="@font/roboto_light"
+                            android:text="रद्द करना\nCancel"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/sp12" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>

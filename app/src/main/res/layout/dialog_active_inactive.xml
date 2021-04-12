@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent" xmlns:tools="http://schemas.android.com/tools"
+        android:padding="20dp"
+        android:id="@+id/main_dialog"
+        android:layout_height="match_parent">
+
+
+
+    <LinearLayout
+            android:padding="10dp"
+            android:background="@drawable/white_background"
+            android:layout_marginTop="35dp"
+            android:orientation="vertical"
+            android:id="@+id/top_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TextView
+                android:id="@+id/success_text"
+                android:textSize="20dp"
+                android:textColor="#3b3b3b"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:text=""
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        <TextView
+                android:id="@+id/textView_success"
+                android:gravity="center"
+                android:textSize="12dp"
+                android:textColor="#3b3b3b"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:text=""
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        <Button
+                android:id="@+id/close_button"
+                android:textColor="#fff"
+                android:text="OK"
+                android:background="@drawable/app_button_press"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="@dimen/dp10"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_width="100dp"
+                android:layout_height="30dp" />
+
+
+        <LinearLayout
+                android:visibility="gone"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                tools:ignore="MissingConstraints">
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ImageView
+            android:visibility="invisible"
+            android:id="@+id/correct_image"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/ic_commerce_and_shopping"
+            android:layout_width="60dp"
+            android:layout_height="60dp" />
+</RelativeLayout>

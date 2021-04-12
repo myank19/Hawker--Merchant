@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/pin_content_layout"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="30dp"
+            android:layout_gravity="center"
+            android:id="@+id/image_logo"
+            android:background="@mipmap/logos"/>
+
+
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:id="@+id/tv_heading1"
+            android:textColor="@color/colorPrimary"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/pin_label_margin" />
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/sp12"
+            android:id="@+id/tv_heading2"
+            android:gravity="center_horizontal"
+            android:textColor="@color/colorPrimary"
+            android:layout_gravity="center_horizontal"
+            />
+        <LinearLayout android:id="@+id/pin_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp20"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center_horizontal">
+
+            <EditText android:id="@+id/pin_first_edittext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                style="@style/pin_edittext_style" />
+
+            <EditText android:id="@+id/pin_second_edittext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                style="@style/pin_edittext_style" />
+
+            <EditText android:id="@+id/pin_third_edittext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                style="@style/pin_edittext_style" />
+
+            <EditText android:id="@+id/pin_forth_edittext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                style="@style/pin_edittext_style" />
+
+        </LinearLayout>
+
+        <EditText android:id="@+id/pin_hidden_edittext"
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center_horizontal"
+            android:background="@null"
+            android:cursorVisible="false"
+            android:password="true"
+            android:maxLength="5"
+            android:textColor="#00000000"
+            android:contentDescription="@string/pin_content_desc" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textStyle="bold"
+            android:id="@+id/tv_timer"
+            android:textColor="@color/light_gray"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/pin_label_margin" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                android:visibility="gone"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="@dimen/dp10"
+                android:id="@+id/btn_submit_id"
+                android:background="@drawable/app_bar_background"
+                android:text="@string/str_submit"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/str_resend"
+                android:id="@+id/tv_resend_otp"
+                android:layout_marginLeft="@dimen/dp15"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp20"
+                android:layout_toRightOf="@+id/btn_submit_id"/>
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+
+</ScrollView>

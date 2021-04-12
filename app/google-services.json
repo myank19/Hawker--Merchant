@@ -1,0 +1,105 @@
+{
+  "project_info": {
+    "project_number": "612209514032",
+    "project_id": "hawkercustomerapp",
+    "storage_bucket": "hawkercustomerapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:612209514032:android:6f9b6149a3ccc642703ff5",
+        "android_client_info": {
+          "package_name": "io.goolean.tech.hawker.merchant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "612209514032-gu9ut81nn6ms3l1u8h9csugadk8ad3eb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByGTdHmxHWC60QhUVUKgkxx02nevMPD5Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "612209514032-gu9ut81nn6ms3l1u8h9csugadk8ad3eb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:612209514032:android:6b9c47820604a267703ff5",
+        "android_client_info": {
+          "package_name": "io.goolean.tech.hawker.sales"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "612209514032-8opv7ke0oibunnurooibjf5tiss0v0po.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.goolean.tech.hawker.sales",
+            "certificate_hash": "6d8c61871e8235af723b91830d4c23908f238d3e"
+          }
+        },
+        {
+          "client_id": "612209514032-gu9ut81nn6ms3l1u8h9csugadk8ad3eb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByGTdHmxHWC60QhUVUKgkxx02nevMPD5Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "612209514032-gu9ut81nn6ms3l1u8h9csugadk8ad3eb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:612209514032:android:aa62e709fa17d866703ff5",
+        "android_client_info": {
+          "package_name": "io.goolean.tech.hawkers.customer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "612209514032-gu9ut81nn6ms3l1u8h9csugadk8ad3eb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByGTdHmxHWC60QhUVUKgkxx02nevMPD5Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "612209514032-gu9ut81nn6ms3l1u8h9csugadk8ad3eb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

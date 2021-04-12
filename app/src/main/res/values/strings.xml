@@ -1,0 +1,87 @@
+<resources>
+    <string name="app_name" translatable="false">Merchant - Hawkers</string>
+
+    <string name="you_are_not_connected_to_any_network">"Please check your internet connection""\n""आप किसी भी नेटवर्क से नहीं जुड़े हैं"</string>
+    <string name="connect">connect</string>
+    <string name="str_phone_number">Phone Number / फ़ोन नंबर</string>
+    <string name="str_login">LOGIN / लॉग इन करे</string>
+    <string name="str_forgot_password" translatable="false">Forgot Password</string>
+    <string name="str_i_just_wanna_explore" translatable="false">I JUST WANNA EXPLORE</string>
+    <string name="title_activity_home">Home</string>
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+    <string name="nav_header_title" translatable="false">Android Studio</string>
+    <string name="nav_header_subtitle" translatable="false">android.studio@android.com</string>
+    <string name="nav_header_desc" translatable="false">Navigation header</string>
+    <string name="action_settings" translatable="false">Exit</string>
+    <string name="action_reset" translatable="false">Reset</string>
+    <string name="verification_code_subtext">Please type the verification code sent to +xxxxxxxxxx</string>
+    <string name="verification_code">Verification Code</string>
+    <string name="validate" translatable="false">Validate</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_logout">Logout</string>
+    <string name="menu_exit" translatable="false">Exit</string>
+    <string name="ent_number">Enter Number</string>
+    <string name="login">Login</string>
+    <string name="error_message_number">Please Enter Number</string>
+    <string name="success_message" translatable="false">SignIn Successful</string>
+    <string name="number_error">Enter 10 digit mobile number</string>
+    <string name="forgot_password" translatable="false">Forgot Password</string>
+    <string name="signup" translatable="false">SignUp here?</string>
+    <string name="create_account" translatable="false">Create an account</string>
+    <string name="h_sign">SignUp</string>
+    <string name="enter_otp">Enter OTP</string>
+    <string name="str_number" translatable="false">Number</string>
+    <string name="str_state">State</string>
+    <string name="str_city">City</string>
+    <string name="str_submit">SUBMIT</string>
+    <string name="str_enter_name" translatable="false">Name</string>
+    <string name="str_address" translatable="false">Address</string>
+    <string name="str_gps_id" translatable="false">GPS ID</string>
+    <string-array name="stepLabels">
+        <item>Basic</item>
+        <item>Shop</item>
+        <item>Categories</item>
+        <item>Upload Image</item>
+    </string-array>
+
+
+    <string-array name="type_arrays">
+        <item>Fixer</item>
+        <item>Moving</item>
+        <item>Hybrid</item>
+    </string-array>
+    <string name="title_activity_maps">Map</string>
+
+
+    <string name="channel_name" translatable="false">Hawker</string>
+    <string name="channel_description" translatable="false">Hawker</string>
+    <string name="quickstart_message" translatable="false">Click the SUBSCRIBE TO WEATHER button below to subscribe to the
+        weather topic. Messages sent to the weather topic will be received. The LOG TOKEN button logs the
+        InstanceID token to logcat.
+    </string>
+    <string name="subscribe_to_weather" translatable="false">Subscribe To Weather</string>
+    <string name="log_token" translatable="false">Log Token</string>
+    <string name="msg_subscribed" translatable="false">Subscribed to weather topic</string>
+    <string name="msg_token_fmt" translatable="false">InstanceID Token: %s</string>
+    <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
+    <string name="str_duty">Duty</string>
+    <string name="str_cancel" translatable="false">Cancel</string>
+    <string name="str_ok" translatable="false">OK</string>
+    <string name="str_login_status" translatable="false">Login Status</string>
+    <string name="str_do_you">Do you want login in this device. Please log out first from another device.</string>
+    <string name="str_your">Your account is deactivated</string>
+    <string name="pin_content_desc">PIN input field</string>
+    <string name="pin_label_text">Sit back &amp; Relax! While we verify your mobile number</string>
+    <string name="pin_label_text2">Please enter the 4 digit pin code</string>
+    <string name="str_close">Close</string>
+    <string name="str_total_call">Total Today\'s Calls</string>
+    <string name="str_i_need_help">Call Us</string>
+    <string name="str_resend">RESEND/पुन: भेजें</string>
+
+
+    <string name="rs">\u20A8</string>
+    <string name="Rs">\u20B9</string>
+    <string name="select_plan">Select Your Plan</string>
+    <string name="banner_image_change">Is \"Hawkers\" App permitted to replace this Uploaded Image if it\'s Distorted or Incomaptible?</string>
+</resources>

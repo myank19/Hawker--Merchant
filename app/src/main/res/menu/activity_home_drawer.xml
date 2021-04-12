@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_callus"
+            android:icon="@drawable/ic_call"
+            android:iconTint="@color/black"
+            android:title="Call Us" />
+
+        <item
+            android:id="@+id/nav_history"
+            android:icon="@drawable/ic_library_books"
+            android:iconTint="@color/black"
+            android:title="Shared Location History" />
+
+<!--        <item-->
+<!--            android:id="@+id/navReferralMoneyReceivedHistory"-->
+<!--            android:icon="@drawable/ic_library_books"-->
+<!--            android:iconTint="@color/black"-->
+<!--            android:title="Referral Money Received" />-->
+
+
+        <item
+            android:id="@+id/nav_Logout"
+            android:icon="@drawable/ic_logout"
+            android:title="Logout" />
+
+    </group>
+</menu>

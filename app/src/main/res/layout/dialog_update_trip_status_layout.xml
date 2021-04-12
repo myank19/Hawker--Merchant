@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_margin="@dimen/dp5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginLeft="@dimen/dp5"
+                android:layout_marginTop="@dimen/dp5"
+                android:layout_width="wrap_content"
+                android:textStyle="bold"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/text_size_seventeen"
+                android:text="विवरण\nDescription"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/img_cancel_id"
+                android:layout_width="@dimen/dp35"
+                android:layout_height="@dimen/dp35"
+                android:background="@drawable/ic_cancel"
+                android:layout_alignParentRight="true"/>
+
+        </RelativeLayout>
+
+
+
+        <EditText
+            android:id="@+id/edt_Discription"
+            android:gravity="top"
+            android:padding="@dimen/dp10"
+            android:translationZ="@dimen/dp10"
+            android:elevation="@dimen/dp10"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp100"
+            android:fontFamily="@font/roboto_light"
+            android:textSize="@dimen/sp14"
+            android:hint="अपना विवरण दर्ज करें\nEnter your description"
+            android:textColor="@color/black"
+            android:maxLength="250"
+            android:background="@drawable/edittext_shadow"/>
+
+        <Button
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/dp20"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:textSize="@dimen/sp15"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="@color/white"
+            android:background="@drawable/app_button_press"
+            android:id="@+id/btn_close"/>
+
+
+    </LinearLayout>
+
+</LinearLayout>

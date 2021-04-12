@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:weightSum="100">
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="30"
+        android:src="@mipmap/app_logo">
+
+        <ImageView
+            android:id="@+id/notifiation_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/circle_app_logo" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/closeDuty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp10"
+        android:layout_weight="70"
+        android:background="@drawable/green_button"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:text="Duty ON / ड्यूटी चालू है |"
+        android:textColor="@color/white" />
+</LinearLayout>

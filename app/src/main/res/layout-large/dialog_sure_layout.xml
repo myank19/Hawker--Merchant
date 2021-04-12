@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:padding="20dp"
+        android:id="@+id/main_dialog"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+            android:padding="10dp"
+            android:background="@drawable/white_background"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical"
+            android:id="@+id/top_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TextView
+                android:id="@+id/success_text"
+                android:textSize="@dimen/sp25"
+                android:textColor="#3b3b3b"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:text="@string/str_login_status"
+            android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        <TextView
+                android:id="@+id/textView_success"
+                android:gravity="center"
+                android:textSize="@dimen/sp20"
+                android:textColor="#3b3b3b"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:text="@string/str_do_you"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        <!--Your account is in under processing.-->
+
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+           >
+            <Button
+                android:id="@+id/cancel_button"
+                android:textColor="#fff"
+                android:text="@string/str_cancel"
+                android:background="@drawable/app_button_press"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:textSize="@dimen/sp20"
+                android:layout_height="@dimen/dp60"
+                android:layout_marginRight="@dimen/dp20"/>
+
+            <Button
+                android:id="@+id/ok_button"
+                android:textColor="#fff"
+                android:text="@string/str_ok"
+                android:textStyle="bold"
+                android:textSize="@dimen/sp20"
+                android:layout_weight="1"
+                android:background="@drawable/app_button_press"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp60" />
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+    <ImageView
+            android:id="@+id/correct_image"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/ic_processing"
+            android:layout_width="60dp"
+            android:layout_height="60dp" />
+</RelativeLayout>

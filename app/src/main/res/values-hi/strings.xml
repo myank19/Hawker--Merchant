@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string name="ent_number">फ़ोन नंबर</string>
+    <string name="login">लॉग इन करें</string>
+    <string name="pin_label_text">हम आपका मोबाइल नंबर सत्यापित करते हैं</string>
+    <string name="pin_label_text2">कृपया 4 अंकों का पिन कोड डालें</string>
+    <string name="str_resend">पुन: भेजें</string>
+    <string name="str_your">आपका खाता निष्क्रिय कर दिया गया है</string>
+    <string name="title_activity_home">होम</string>
+    <string name="title_activity_maps">नक्शा</string>
+    <string name="verification_code">पुष्टि संख्या</string>
+    <string name="verification_code_subtext">कृपया + xxxxxxxxxx को भेजा गया सत्यापन कोड टाइप करें</string>
+    <string name="you_are_not_connected_to_any_network">आप किसी भी नेटवर्क से नहीं जुड़े हैं</string>
+    <string name="str_total_call">आज की कुल कॉल</string>
+    <string name="str_submit">लागू करें</string>
+    <string name="str_state">राज्य</string>
+     <string name="number_error">10 अंकों का मोबाइल नंबर दर्ज करें</string>
+    <string name="menu_logout">बाहर जाएं</string>
+    <string name="menu_home">होम</string>
+    <string name="h_sign">साइन अप करें</string>
+    <string name="pin_content_desc">पिन इनपुट फ़ील्ड</string>
+    <string name="str_city">शहर</string>
+    <string name="str_close">बंद करे</string>
+    <string name="str_do_you">क्या आप इस मोबाइल में लॉगिन करना चाहते हैं। कृपया दूसरे मोबाइल से पहले लॉग आउट करें।</string>
+    <string name="str_duty">कार्य</string>
+    <string name="str_i_need_help">हमें कॉल करें</string>
+    <string name="str_login">लॉग इन करें</string>
+    <string name="str_phone_number">फ़ोन नंबर</string>
+    <string name="connect">जुडिये</string>
+    <string name="enter_otp">पिन दर्ज करें</string>
+    <string name="error_message_number">नंबर दर्ज करें</string>
+
+    <string name="rs">\u20A8</string>
+    <string name="Rs">\u20B9</string>
+</resources>
