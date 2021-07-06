@@ -88,7 +88,7 @@ public class RequestAdvertisementActivity extends AppCompatActivity implements V
     private TextView tvModifyBannerImage, tv_banner;
     private Button btnStartDate, btnEndDate, bt_Camera;
     private String clcikImage = "";
-    private String img="";
+    private String img="",imgBMP="";
     private String img2="";
     private String img4="";
     private String img3="";
@@ -222,7 +222,7 @@ public class RequestAdvertisementActivity extends AppCompatActivity implements V
                         else {
 //                        getLocationFromAddress(RequestAdvertisementActivity.this, et_address.getText().toString());
                             funserverrequest(SharedPrefrence_Login.getMhawker_code(), SharedPrefrence_Login.getPnumber(), et_title.getText().toString(),
-                                    et_description.getText().toString(), strStartDate, img, img2);
+                                    et_description.getText().toString(), strStartDate, imgBMP, img2);
                         }
 
                     }
@@ -671,6 +671,8 @@ public class RequestAdvertisementActivity extends AppCompatActivity implements V
                 //String str= BitMapToString(bm);
                 if (clcikImage.equals("one")) {
                     img = BitMapToString(bm);
+                    imgBMP = resizeBase64Image1(img);
+                    //Toast.makeText(getApplicationContext(),img,Toast.LENGTH_LONG).show();
                     //img = resizeBase64Image(img);
                     System.out.println("hello");
                 } else if (clcikImage.equals("two")) {
@@ -692,6 +694,27 @@ public class RequestAdvertisementActivity extends AppCompatActivity implements V
 
     }
 
+
+    public String resizeBase64Image1(String base64image){
+        byte [] encodeByte=Base64.decode(base64image.getBytes(),Base64.DEFAULT);
+        BitmapFactory.Options options=new BitmapFactory.Options();
+        options.inPurgeable = true;
+        Bitmap image = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length,options);
+
+
+        if(image.getHeight() <= 400 && image.getWidth() <= 400){
+            return base64image;
+        }
+        //image = Bitmap.createScaledBitmap(image, IMG_WIDTH, IMG_HEIGHT, false);
+
+        ByteArrayOutputStream baos=new  ByteArrayOutputStream();
+        image.compress(Bitmap.CompressFormat.PNG,100, baos);
+
+        byte [] b=baos.toByteArray();
+        System.gc();
+        return Base64.encodeToString(b, Base64.NO_WRAP);
+
+    }
 
     private String encodeImage(String path)
     {

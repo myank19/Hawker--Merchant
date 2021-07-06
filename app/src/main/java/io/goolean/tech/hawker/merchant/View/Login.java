@@ -125,7 +125,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener, Go
         btnSubmit.setOnClickListener(this);
         animateView = findViewById(R.id.animate_view);
         textView_heading = findViewById(R.id.tv_heading1);
-        textView_heading.setText("Sign In & Register in to continue" + "\n" + "साइन इन करें और जारी रखने के लिए पंजीकरण करें");
+        textView_heading.setText("Signin & Register to continue" + "\n" + "साइन इन करें और जारी रखने के लिए पंजीकरण करें");
         SharedPrefrence_Login.getNumberData(getApplicationContext());
         SharedPrefrence_Login.getTokenS(getApplicationContext());
         device_id = Settings.Secure.getString(getApplicationContext().getContentResolver(),
@@ -284,12 +284,12 @@ public class Login extends AppCompatActivity implements View.OnClickListener, Go
                                     if (jsoObject.getString("active_status").equals("1")) {
                                         String hawker_code = jsoObject.getString("hawker_code");
                                         String name = jsoObject.getString("name");
-                                        String user_type = jsoObject.getString("user_type");
-                                        String Show_status = jsoObject.getString("Show_status");
-                                        int seller_timer = jsoObject.getInt("seller_timer");
-                                        Log.d("seller_timerr","seller: "+seller_timer);
+                                        String user_type = jsoObject.getString("type");
+                                        String Show_status = jsoObject.getString("status");
+                                        //int seller_timer = jsoObject.getInt("seller_timer");
+                                        //Log.d("seller_timerr","seller: "+seller_timer);
                                         SharedPrefrence_Login.saveDataLogin(getApplicationContext(), edtNumber.getText().toString().trim(),
-                                                device_id, regId, name, hawker_code, str_type, user_type, Show_status,seller_timer);
+                                                device_id, regId, name, hawker_code, str_type, user_type, Show_status,0);
                                         startActivity(new Intent(getApplicationContext(), Otp.class));
                                         finish();
                                         finishAffinity();

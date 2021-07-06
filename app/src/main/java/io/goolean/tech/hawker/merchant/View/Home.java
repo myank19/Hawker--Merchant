@@ -2,6 +2,7 @@
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -77,6 +78,15 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.play.core.appupdate.AppUpdateInfo;
+import com.google.android.play.core.appupdate.AppUpdateManager;
+import com.google.android.play.core.appupdate.AppUpdateManagerFactory;
+import com.google.android.play.core.install.InstallState;
+import com.google.android.play.core.install.InstallStateUpdatedListener;
+import com.google.android.play.core.install.model.AppUpdateType;
+import com.google.android.play.core.install.model.InstallStatus;
+import com.google.android.play.core.install.model.UpdateAvailability;
+import com.google.android.play.core.tasks.OnSuccessListener;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.PermissionDeniedResponse;
@@ -153,6 +163,7 @@ public class Home extends AppCompatActivity
         ShareLocationAdapter.CompleteClick {
     //Goolean@123#
     private ImageView iv_navDrawer;
+    //testing
     private DrawerLayout drawer;
     private GoogleMap mMap;
     private Switch swActiveInactive;
@@ -188,6 +199,7 @@ public class Home extends AppCompatActivity
     String versionName = "";
     int versionCode;
     private Dialog dialog;
+
     private Button btn_info_ok;
     private TextView tv_dutyhindi, tv_dutyenglish, tv_callus;
     private SwitchButtonListener switchButtonListener = new SwitchButtonListener();
@@ -204,11 +216,43 @@ public class Home extends AppCompatActivity
     private CardView reward_cardView;
     private TextView tvReferral, text1, txt2, txtv2;
     boolean checkStatus = false;
+    AlertDialog.Builder builder;
+    AppUpdateManager appUpdateManager;
+    int RequestUpdate = 1;
+    //private static final RC_APP_UPDATE=100;
+
+
+    //private static final int = RC_APP_UPDATE=100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        appUpdateManager = AppUpdateManagerFactory.create(Home.this);
+        appUpdateManager.getAppUpdateInfo().addOnSuccessListener(new OnSuccessListener<AppUpdateInfo>() {
+            @Override
+            public void onSuccess(AppUpdateInfo result) {
+
+                if((result.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE)
+                        && result.isUpdateTypeAllowed(AppUpdateType.IMMEDIATE))
+                {
+                    try {
+                        appUpdateManager.startUpdateFlowForResult(
+                                result,
+                                AppUpdateType.IMMEDIATE,
+                                Home.this,
+                                RequestUpdate);
+                    }
+                    catch (IntentSender.SendIntentException e)
+                    {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+        //checkUpdate();
+        builder = new AlertDialog.Builder(this);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         StrictMode.ThreadPolicy policy =
                 new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -264,6 +308,44 @@ public class Home extends AppCompatActivity
         jobDispatcher = new FirebaseJobDispatcher(new GooglePlayDriver(this));
 
         Log.d("locationStatus",""+isGPSEnabled(this));
+
+    }
+
+
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        //removeInstallStateUpdateListener();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        appUpdateManager.getAppUpdateInfo().addOnSuccessListener(new OnSuccessListener<AppUpdateInfo>() {
+            @Override
+            public void onSuccess(AppUpdateInfo result) {
+                if(result.updateAvailability() == UpdateAvailability.DEVELOPER_TRIGGERED_UPDATE_IN_PROGRESS)
+                {
+                    try {
+                        appUpdateManager.startUpdateFlowForResult(
+                                result,
+                                AppUpdateType.IMMEDIATE,
+                                Home.this,
+                                RequestUpdate);
+                    }
+                    catch (IntentSender.SendIntentException e)
+                    {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+
+
+
+
+
 
     }
 
@@ -879,13 +961,37 @@ public class Home extends AppCompatActivity
 //           //startActivity(new Intent(getApplicationContext(),ReferralMoneyReceivedHistory.class));
 //        }
         else if (id == R.id.nav_Logout) {
-            logout_status = "LogOut";
+
             if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
                 turnGPSOn();
             } else if (!AppStatus.getInstance(this).isOnline()) {
                 CallbackSnakebarModel.getInstance().SnakebarMessage(getApplicationContext(), "Please check your internet connection" + "\n" + "आप किसी भी नेटवर्क से नहीं जुड़े हैं", MessageConstant.toast_warning);
             } else {
-                fun_DutyONOFF("0", SharedPrefrence_Login.getMhawker_code());
+
+                builder.setMessage("Do you want to exit")
+                        .setCancelable(false)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                logout_status = "LogOut";
+                                //finishAffinity();
+                                fun_DutyONOFF("0", SharedPrefrence_Login.getMhawker_code());
+                                //System.exit(0);
+
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                //  Action for 'NO' Button
+                                dialog.cancel();
+
+                            }
+                        });
+                //Creating dialog box
+                AlertDialog alert = builder.create();
+                //Setting the title manually
+                alert.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                alert.show();
+
             }
         }
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -1431,6 +1537,9 @@ public class Home extends AppCompatActivity
                 fun_hindi();
 
             }
+
+
+
             if (resultCode == Activity.RESULT_CANCELED) {
                 //Write your code if there's no result
             }
@@ -1439,6 +1548,9 @@ public class Home extends AppCompatActivity
         } else if (requestCode == 102) {
         }
     }
+
+
+
 
     public void turnGPSOn() {
 

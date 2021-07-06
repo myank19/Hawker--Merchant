@@ -107,7 +107,7 @@ public class Otp extends AppCompatActivity implements View.OnFocusChangeListener
         mPinForthDigitEditText.setInputType(InputType.TYPE_CLASS_NUMBER);
         SharedPrefrence_Login.getDataLogin(getApplicationContext());
         tv_heading1.setText("Sit back & Relax! While we verify your mobile number"+"\n"+"हम आपका मोबाइल नंबर सत्यापित करते हैं");
-        tv_heading2.setText("Please enter the 4 digit pin code"+"\n"+"कृपया 4 अंकों का पिन कोड डालें");
+        tv_heading2.setText("Please enter the 4 digit otp pin "+"\n"+"कृपया 4 अंकों का पिन कोड डालें");
     }
 
 
@@ -213,13 +213,16 @@ public class Otp extends AppCompatActivity implements View.OnFocusChangeListener
                                 JSONObject obj = new JSONObject(response);
                                 String str = obj.getString("data");
                                 JSONObject jsoObject = new JSONObject(str);
+                                String message = jsoObject.getString("message");
 
                                 if (jsoObject.getString("status").equals("0")) {
                                     /*OTP NOT MATCHED*/
                                    // SharedPrefrence_Login.fun_checkOTP(getApplicationContext(),jsoObject.getString("status"));
-                                    CallbackSnakebarModel.getInstance().SnakebarMessage(getApplicationContext(), "Enter vaild 4 digit code", MessageConstant.toast_warning);
+                                    CallbackSnakebarModel.getInstance().SnakebarMessage(getApplicationContext(),message, MessageConstant.toast_warning);
 
                                 }else {
+                                    CallbackSnakebarModel.getInstance().SnakebarMessage(getApplicationContext(),message, MessageConstant.toast_warning);
+
                                     /*OTP MATCHED*/
                                     countDownTimer.cancel();
                                     SharedPrefrence_Login.fun_checkOTP(getApplicationContext(),jsoObject.getString("status"));

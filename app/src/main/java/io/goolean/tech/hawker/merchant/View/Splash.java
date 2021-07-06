@@ -54,6 +54,11 @@ import com.google.android.gms.location.LocationSettingsRequest;
 import com.google.android.gms.location.LocationSettingsResult;
 import com.google.android.gms.location.LocationSettingsStates;
 import com.google.android.gms.location.LocationSettingsStatusCodes;
+import com.google.android.play.core.appupdate.AppUpdateInfo;
+import com.google.android.play.core.appupdate.AppUpdateManager;
+import com.google.android.play.core.appupdate.AppUpdateManagerFactory;
+import com.google.android.play.core.install.model.AppUpdateType;
+import com.google.android.play.core.tasks.Task;
 import com.google.firebase.crashlytics.FirebaseCrashlytics;
 import com.google.firebase.messaging.FirebaseMessaging;
 
@@ -92,7 +97,7 @@ public class Splash extends AppCompatActivity implements GoogleApiClient.Connect
     private LocationManager locationManager;
     private Location_Update location_update;
     Button getBtnd_ok;
-
+    AppUpdateManager appUpdateManager;
 
 
     @Override
@@ -186,11 +191,18 @@ public class Splash extends AppCompatActivity implements GoogleApiClient.Connect
                                         btnd_ok.setOnClickListener(new View.OnClickListener() {
                                             @Override
                                             public void onClick(View v) {
-                                                String url = "https://play.google.com/store/apps/details?id=" + getPackageName();
-                                                if (!url.startsWith("http://") && !url.startsWith("https://"))
-                                                    url = "http://" + url;
-                                                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                                                startActivity(browserIntent);
+                                                int MY_REQUEST_CODE=101;
+                                                 appUpdateManager = AppUpdateManagerFactory.create(getApplicationContext());
+                                                Task<AppUpdateInfo> appUpdateInfoTask = appUpdateManager.getAppUpdateInfo();
+                                                appUpdateManager.startUpdateFlowForResult(
+                                                        // Pass the intent that is returned by 'getAppUpdateInfo()'.
+                                                        appUpdateInfoTask,
+                                                        // Or 'AppUpdateType.FLEXIBLE' for flexible updates.
+                                                        AppUpdateType.IMMEDIATE,
+                                                        // The current activity making the update request.
+                                                        this,
+                                                        // Include a request code to later monitor this update request.
+                                                        MY_REQUEST_CODE);
                                             }
                                         });
                                         btnd_cancel.setOnClickListener(new View.OnClickListener() {
@@ -214,11 +226,23 @@ public class Splash extends AppCompatActivity implements GoogleApiClient.Connect
                                         btnd_ok.setOnClickListener(new View.OnClickListener() {
                                             @Override
                                             public void onClick(View v) {
-                                                String url = "https://play.google.com/store/apps/details?id=" + getPackageName();
-                                                if (!url.startsWith("http://") && !url.startsWith("https://"))
-                                                    url = "http://" + url;
-                                                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                                                startActivity(browserIntent);
+                                                int MY_REQUEST_CODE=101;
+                                                 appUpdateManager = AppUpdateManagerFactory.create(getApplicationContext());
+                                                Task<AppUpdateInfo> appUpdateInfoTask = appUpdateManager.getAppUpdateInfo();
+                                                appUpdateManager.startUpdateFlowForResult(
+                                                        // Pass the intent that is returned by 'getAppUpdateInfo()'.
+                                                        appUpdateInfoTask,
+                                                        // Or 'AppUpdateType.FLEXIBLE' for flexible updates.
+                                                        AppUpdateType.IMMEDIATE,
+                                                        // The current activity making the update request.
+                                                        this,
+                                                        // Include a request code to later monitor this update request.
+                                                        MY_REQUEST_CODE);
+//                                                String url = "https://play.google.com/store/apps/details?id=" + getPackageName();
+//                                                if (!url.startsWith("http://") && !url.startsWith("https://"))
+//                                                    url = "http://" + url;
+//                                                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+//                                                startActivity(browserIntent);
                                             }
                                         });
                                         btnd_cancel.setOnClickListener(new View.OnClickListener() {
@@ -246,11 +270,18 @@ public class Splash extends AppCompatActivity implements GoogleApiClient.Connect
                                     btnd_ok.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View v) {
-                                            String url = "https://play.google.com/store/apps/details?id=" + getPackageName();
-                                            if (!url.startsWith("http://") && !url.startsWith("https://"))
-                                                url = "http://" + url;
-                                            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                                            startActivity(browserIntent);
+                                            int MY_REQUEST_CODE=101;
+                                             appUpdateManager = AppUpdateManagerFactory.create(getApplicationContext());
+                                            Task<AppUpdateInfo> appUpdateInfoTask = appUpdateManager.getAppUpdateInfo();
+                                            appUpdateManager.startUpdateFlowForResult(
+                                                    // Pass the intent that is returned by 'getAppUpdateInfo()'.
+                                                    appUpdateInfoTask,
+                                                    // Or 'AppUpdateType.FLEXIBLE' for flexible updates.
+                                                    AppUpdateType.IMMEDIATE,
+                                                    // The current activity making the update request.
+                                                    this,
+                                                    // Include a request code to later monitor this update request.
+                                                    MY_REQUEST_CODE);
                                         }
                                     });
                                     btnd_cancel.setBackgroundResource(R.color.gray);
