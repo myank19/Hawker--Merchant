@@ -10,11 +10,13 @@ import android.net.Uri;
 import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import io.goolean.tech.hawker.merchant.Constant.ConnectionDetector;
 import io.goolean.tech.hawker.merchant.Constant.MessageConstant;
 import io.goolean.tech.hawker.merchant.Constant.Singleton.CallbackSnakebarModel;
 import io.goolean.tech.hawker.merchant.R;
+import io.goolean.tech.hawker.merchant.View.Login;
 import io.goolean.tech.hawker.merchant.View.Otp;
 
 
@@ -97,7 +99,7 @@ public class Dialog_ extends Activity {
         dialog.setContentView(R.layout.dialog_message_info);
         dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-        dialog.setCancelable(false);
+        dialog.setCancelable(true);
         dialog.show();
         tv_Info =(TextView)dialog.findViewById(R.id.tv_info_id);
         tv_Info.setText(message);
@@ -105,10 +107,24 @@ public class Dialog_ extends Activity {
         btn_info_ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-             dialog.dismiss();
+
+                dialog.dismiss();
+                Intent myintent = new Intent(context, Login.class);
+                myintent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(myintent);
+                //context.startActivity(myintent, Login.class);
+                //Toast.makeText(context,"hii",Toast.LENGTH_LONG).show();
+//                Activity activity = (Activity) context;
+//
+////correct way to use finish()
+//                activity.finish();
+
             }
+
         });
     }
+
+
 
     public static void dialog_OTPInternet(final Context applicationContext, final String pdevice_id, final String pnumber){
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);

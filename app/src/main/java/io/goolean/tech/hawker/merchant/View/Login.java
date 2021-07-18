@@ -291,7 +291,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener, Go
                                         SharedPrefrence_Login.saveDataLogin(getApplicationContext(), edtNumber.getText().toString().trim(),
                                                 device_id, regId, name, hawker_code, str_type, user_type, Show_status,0);
                                         startActivity(new Intent(getApplicationContext(), Otp.class));
-                                        finish();
+                                        //finish();
                                         finishAffinity();
                                     }
                                 }

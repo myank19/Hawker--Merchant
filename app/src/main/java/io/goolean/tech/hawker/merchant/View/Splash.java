@@ -58,6 +58,7 @@ import com.google.android.play.core.appupdate.AppUpdateInfo;
 import com.google.android.play.core.appupdate.AppUpdateManager;
 import com.google.android.play.core.appupdate.AppUpdateManagerFactory;
 import com.google.android.play.core.install.model.AppUpdateType;
+import com.google.android.play.core.install.model.UpdateAvailability;
 import com.google.android.play.core.tasks.Task;
 import com.google.firebase.crashlytics.FirebaseCrashlytics;
 import com.google.firebase.messaging.FirebaseMessaging;
@@ -96,6 +97,7 @@ public class Splash extends AppCompatActivity implements GoogleApiClient.Connect
     private TextView tvd_message, tv_msg;
     private LocationManager locationManager;
     private Location_Update location_update;
+    private int MY_REQUEST_CODE = 101;
     Button getBtnd_ok;
     AppUpdateManager appUpdateManager;
 
@@ -114,21 +116,8 @@ public class Splash extends AppCompatActivity implements GoogleApiClient.Connect
 // To log a message to a crash report, use the following syntax:
         crashlytics.log("E/TAG: my message");
 
-//       getBtnd_ok.setOnClickListener(new View.OnClickListener() {
-//           @Override
-//           public void onClick(View v) {
-//
-//           }
-//       });
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
-
-//        getBtnd_ok.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
         initValue();
         funNotification();
 
@@ -136,7 +125,6 @@ public class Splash extends AppCompatActivity implements GoogleApiClient.Connect
         ConnectivityManager conMgr =  (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo netInfo = conMgr.getActiveNetworkInfo();
         if (netInfo == null){
-           //Toast.makeText(getApplicationContext(),"Please check your internet connection",Toast.LENGTH_LONG).show();
         }else{
             getVersionInfo();
 
@@ -159,6 +147,29 @@ public class Splash extends AppCompatActivity implements GoogleApiClient.Connect
         }
         textViewVersionInfo = (TextView) findViewById(R.id.tv_versioncode);
         textViewVersionInfo.setText(String.format("V" + versionName));
+    }
+
+    private void updateImmediateApp(){
+        AppUpdateManager appUpdateManager = AppUpdateManagerFactory.create(getApplicationContext());
+
+        // Returns an intent object that you use to check for an update.
+        Task<AppUpdateInfo> appUpdateInfoTask = appUpdateManager.getAppUpdateInfo();
+        //Toast.makeText(getApplicationContext(),"Hello",Toast.LENGTH_SHORT).show();
+        // Checks that the platform will allow the specified type of update.
+        appUpdateInfoTask.addOnSuccessListener(appUpdateInfo -> {
+
+            //Toast.makeText(getApplicationContext(),""+appUpdateInfo.updateAvailability(),Toast.LENGTH_SHORT).show();
+
+            if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE
+                    && appUpdateInfo.isUpdateTypeAllowed(AppUpdateType.FLEXIBLE)) {
+                // Request the update.
+                try {
+                    appUpdateManager.startUpdateFlowForResult(appUpdateInfo,AppUpdateType.IMMEDIATE,this,MY_REQUEST_CODE);
+                } catch (IntentSender.SendIntentException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
     private void func_CheckVersion(final String versionName, final int versionCode) {
@@ -191,18 +202,7 @@ public class Splash extends AppCompatActivity implements GoogleApiClient.Connect
                                         btnd_ok.setOnClickListener(new View.OnClickListener() {
                                             @Override
                                             public void onClick(View v) {
-                                                int MY_REQUEST_CODE=101;
-                                                 appUpdateManager = AppUpdateManagerFactory.create(getApplicationContext());
-                                                Task<AppUpdateInfo> appUpdateInfoTask = appUpdateManager.getAppUpdateInfo();
-                                                appUpdateManager.startUpdateFlowForResult(
-                                                        // Pass the intent that is returned by 'getAppUpdateInfo()'.
-                                                        appUpdateInfoTask,
-                                                        // Or 'AppUpdateType.FLEXIBLE' for flexible updates.
-                                                        AppUpdateType.IMMEDIATE,
-                                                        // The current activity making the update request.
-                                                        this,
-                                                        // Include a request code to later monitor this update request.
-                                                        MY_REQUEST_CODE);
+                                                updateImmediateApp();
                                             }
                                         });
                                         btnd_cancel.setOnClickListener(new View.OnClickListener() {
@@ -226,18 +226,7 @@ public class Splash extends AppCompatActivity implements GoogleApiClient.Connect
                                         btnd_ok.setOnClickListener(new View.OnClickListener() {
                                             @Override
                                             public void onClick(View v) {
-                                                int MY_REQUEST_CODE=101;
-                                                 appUpdateManager = AppUpdateManagerFactory.create(getApplicationContext());
-                                                Task<AppUpdateInfo> appUpdateInfoTask = appUpdateManager.getAppUpdateInfo();
-                                                appUpdateManager.startUpdateFlowForResult(
-                                                        // Pass the intent that is returned by 'getAppUpdateInfo()'.
-                                                        appUpdateInfoTask,
-                                                        // Or 'AppUpdateType.FLEXIBLE' for flexible updates.
-                                                        AppUpdateType.IMMEDIATE,
-                                                        // The current activity making the update request.
-                                                        this,
-                                                        // Include a request code to later monitor this update request.
-                                                        MY_REQUEST_CODE);
+                                                updateImmediateApp();
 //                                                String url = "https://play.google.com/store/apps/details?id=" + getPackageName();
 //                                                if (!url.startsWith("http://") && !url.startsWith("https://"))
 //                                                    url = "http://" + url;
@@ -270,18 +259,7 @@ public class Splash extends AppCompatActivity implements GoogleApiClient.Connect
                                     btnd_ok.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View v) {
-                                            int MY_REQUEST_CODE=101;
-                                             appUpdateManager = AppUpdateManagerFactory.create(getApplicationContext());
-                                            Task<AppUpdateInfo> appUpdateInfoTask = appUpdateManager.getAppUpdateInfo();
-                                            appUpdateManager.startUpdateFlowForResult(
-                                                    // Pass the intent that is returned by 'getAppUpdateInfo()'.
-                                                    appUpdateInfoTask,
-                                                    // Or 'AppUpdateType.FLEXIBLE' for flexible updates.
-                                                    AppUpdateType.IMMEDIATE,
-                                                    // The current activity making the update request.
-                                                    this,
-                                                    // Include a request code to later monitor this update request.
-                                                    MY_REQUEST_CODE);
+                                            updateImmediateApp();
                                         }
                                     });
                                     btnd_cancel.setBackgroundResource(R.color.gray);
